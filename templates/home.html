@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+ background-image: url("https://images.unsplash.com/photo-1495435229349-e86db7bfa013?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFya2luZyUyMGdhcmFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+background-repeat: no-repeat;
+background-size: cover;
+height: 100%;
+}
+#entry-div, #exit-div{
+background-color : white;
+margin-top : 50px;
+height : 600px;
+width : 500px;
+border-radius: 25px;
+opacity : 0.6;
+padding : 30px;
+
+}
+
+#form-div,#form-div1{
+margin-top : 60px;
+}
+#code : {
+ width : 90px;
+}
+.btn{
+background-color : #e7e7e7;
+margin-top :20px;
+}
+</style>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <div id="entry-div">
+              <h4 style="margin-left : 10px;">Entry</h4>
+              <div id="form-div1">
+              <form action="{% url 'customer:home'  %}" method="post">{% csrf_token %}
+                  <input type="text" class="form-control" id="reg-num" name="reg-num" placeholder="Enter vehicle number" required>
+                  <input type="submit" value="Confirm" class="btn" name="entry-btn">
+
+              </form>
+              </div>
+
+          </div>
+
+
+      </div>
+      <div class="col-md-6">
+          <div id="exit-div">
+            <h4 style="margin-left : 10px;">Exit</h4>
+              <div id="form-div">
+              <form action="{% url 'customer:home' %}" method="post">{% csrf_token %}
+                  <input type="number" class="form-control" id="code" name="code" placeholder="Enter code" required>
+                  <p style="color:red;">{{ error }}</p>
+                  <input type="submit" value="Confirm"  class="btn" name="exit-btn">
+              </form>
+              </div>
+
+          </div>
+
+
+      </div>
+  </div>
+</div>
+{% endblock %}

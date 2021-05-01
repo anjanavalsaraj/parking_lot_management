@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+ background-image: url("https://images.unsplash.com/photo-1495435229349-e86db7bfa013?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFya2luZyUyMGdhcmFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+background-repeat: no-repeat;
+background-size: cover;
+height: 100%;
+}
+#code-div{
+background-color : white;
+margin: auto;
+height : 300px;
+width : 500px;
+border-radius: 25px;
+position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  align-content: center;
+  opacity : 0.6;
+  padding : 30px;
+
+}
+
+</style>
+<div class="container">
+  <div class="row">
+      <div id="code-div">
+          <h3>Registration successfull</h3>
+          <h4>Your code is : {{ code }}</h4>
+          <button onclick="location.href='{% url 'customer:home' %}'" class="btn" style="float:right;margin-top:100px;"> Back</button>
+      </div>
+  </div>
+</div>
+{% endblock %}

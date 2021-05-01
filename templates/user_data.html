@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+ background-image: url("https://images.unsplash.com/photo-1495435229349-e86db7bfa013?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFya2luZyUyMGdhcmFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+background-repeat: no-repeat;
+background-size: cover;
+height: 100%;
+}
+#code-div{
+background-color : white;
+margin: auto;
+height : 300px;
+width : 500px;
+border-radius: 25px;
+position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  align-content: center;
+  padding : 30px;
+  opacity : 0.6;
+
+}
+
+</style>
+<div class="container">
+  <div class="row">
+      <div id="code-div">
+          <h3>Details</h3>
+          <h6>Name : {{data.customer.first_name}} {{ data.customer.last_name }}</h6>
+          <h6>Vehicle No : {{data.vehicle_number}}</h6>
+          <h6>Entry time : {{ data.entry_time }}</h6>
+          <h6>Exit time : {{ data.exit_time }}</h6>
+          <button onclick="location.href='{% url 'customer:home' %}'" class="btn" style="float:right"> Back</button>
+      </div>
+  </div>
+</div>
+{% endblock %}
